@@ -1,7 +1,8 @@
-package com.example.mvvm_login
+package com.example.mvvm_login.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.mvvm_login.R
 
 class MainActivity : AppCompatActivity() {
 
