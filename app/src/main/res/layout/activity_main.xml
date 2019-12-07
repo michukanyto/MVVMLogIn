@@ -18,14 +18,14 @@
         android:ems="10"
         android:hint="User name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/pssEditText"
+        app:layout_constraintBottom_toTopOf="@+id/passEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/pssEditText"
+        android:id="@+id/passEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -57,4 +57,19 @@
         app:layout_constraintStart_toStartOf="@+id/userEditText"
         app:layout_constraintTop_toBottomOf="@+id/userEditText"
         app:layout_constraintVertical_bias="0.167" />
+
+    <TextView
+        android:id="@+id/messageTextView"
+        android:layout_width="302dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="226dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center"
+        android:visibility="invisible"
+        android:text="User name or Password are invalid"
+        android:textColor="#F44336"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logInButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
