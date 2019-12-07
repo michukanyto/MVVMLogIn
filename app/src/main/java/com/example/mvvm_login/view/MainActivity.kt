@@ -2,6 +2,7 @@ package com.example.mvvm_login.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -19,21 +20,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        user = userEditText.text.toString()
-        pass = passEditText.text.toString()
-
 
         viewModel = ViewModelProviders.of(this).get(LogInViewModel::class.java)
 
-        viewModel.validateCredentials(user!!,pass!!).observe(this, Observer { logIn ->
-            if (logIn.logInOK){
-                Toast.makeText(this,"New Activity Loading",Toast.LENGTH_LONG).show()
-                logInButton.visibility = View.INVISIBLE
-            } else {
-                messageTextView.visibility = View.VISIBLE
-            }
-        })
-
+        logInButton.setOnClickListener {
+            user = userEditText.text.toString()
+            pass = passEditText.text.toString()
+            viewModel.validateCredentials(user!!,pass!!).observe(this, Observer { logIn ->
+                Log.i("-------------",logIn.logInOK.toString())
+                if (logIn.logInOK){
+                    Toast.makeText(this,"New Activity Loading",Toast.LENGTH_LONG).show()
+                    logInButton.visibility = View.INVISIBLE
+                } else {
+                    messageTextView.visibility = View.VISIBLE
+                }
+            })
+        }
 
     }
 }

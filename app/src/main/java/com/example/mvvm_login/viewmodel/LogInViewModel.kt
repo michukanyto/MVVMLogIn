@@ -13,9 +13,10 @@ class LogInViewModel : ViewModel() {
     private val logIn = MutableLiveData<LogIn>()
 
     fun validateCredentials(user:String,password:String): LiveData<LogIn> {
-        var isItOK:Boolean = false
-        isItOK = user == USERNAME && password == PASSWORD
+        var isItOK:Boolean?
+         if (user == USERNAME && password == PASSWORD) isItOK = true else isItOK = false
         logIn.value = LogIn(user,password,isItOK)
         return logIn
+
     }
 }
