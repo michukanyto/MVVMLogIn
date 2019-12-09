@@ -30,14 +30,32 @@ class MainActivity : AppCompatActivity() {
 
             viewModel.validateCredentials(user!!,pass!!)
 
+//            viewModel.logIn.observe(this, Observer { logIn ->
+//                Log.i("-------------",logIn.loginOK.toString())
+//                if (logIn.loginOK){
+//                    Toast.makeText(this,"New Activity Loading",Toast.LENGTH_LONG).show()
+//                    logInButton.visibility = View.INVISIBLE
+//                    messageTextView.visibility = View.INVISIBLE
+//                } else {
+//                    messageTextView.visibility = View.VISIBLE
+//                }
+//            })
+
             viewModel.logIn.observe(this, Observer { logIn ->
                 Log.i("-------------",logIn.loginOK.toString())
-                if (logIn.loginOK){
-                    Toast.makeText(this,"New Activity Loading",Toast.LENGTH_LONG).show()
-                    logInButton.visibility = View.INVISIBLE
-                    messageTextView.visibility = View.INVISIBLE
-                } else {
-                    messageTextView.visibility = View.VISIBLE
+                when(logIn.loginOK){
+                    true ->  {
+                        Toast.makeText(this,"New Activity Loading",Toast.LENGTH_LONG).show()
+                        logInButton.isEnabled = false
+                        messageTextView.visibility = View.INVISIBLE
+                    }
+
+                    false -> {
+                        messageTextView.visibility = View.VISIBLE
+                        messageTextView.text = logIn.error
+                        logInButton.isEnabled = true
+                    }
+
                 }
             })
         }
