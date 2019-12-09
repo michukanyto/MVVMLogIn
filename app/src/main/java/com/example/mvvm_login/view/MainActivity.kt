@@ -48,6 +48,8 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this,"New Activity Loading",Toast.LENGTH_LONG).show()
                         logInButton.isEnabled = false
                         messageTextView.visibility = View.INVISIBLE
+//                        Thread.sleep(2000)
+//                        logInButton.isEnabled = true
                     }
 
                     false -> {
