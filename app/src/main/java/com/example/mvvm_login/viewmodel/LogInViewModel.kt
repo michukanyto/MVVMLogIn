@@ -33,6 +33,8 @@ class LogInViewModel : ViewModel() {
 
     val logIn = MutableLiveData<ViewModelState>()
 
+    fun getState() : LiveData<ViewModelState> = logIn
+
 /////////////////with simple state///////////////////////
 //    fun validateCredentials(user:String,password:String) {
 //        var isItOK:Boolean?
@@ -41,7 +43,6 @@ class LogInViewModel : ViewModel() {
 //    }
 
     fun validateCredentials(user:String,password:String){
-        var isItOK:Boolean?
         var newLogIn = LogIn(user,password)
 
          if (newLogIn.user == USERNAME && newLogIn.password == PASSWORD){
@@ -49,8 +50,6 @@ class LogInViewModel : ViewModel() {
          }else{
              logIn.value = ViewModelStateError(ERROR_MESSAGE)
          }
-
-
     }
 
 

@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 //                }
 //            })
 
-            viewModel.logIn.observe(this, Observer { logIn ->
+            viewModel.getState().observe(this, Observer { logIn ->
                 Log.i("-------------",logIn.loginOK.toString())
                 when(logIn.loginOK){
                     true ->  {
@@ -53,7 +53,6 @@ class MainActivity : AppCompatActivity() {
                     false -> {
                         messageTextView.visibility = View.VISIBLE
                         messageTextView.text = logIn.error
-                        logInButton.isEnabled = true
                     }
 
                 }
