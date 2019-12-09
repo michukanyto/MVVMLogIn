@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity() {
             user = userEditText.text.toString()
             pass = passEditText.text.toString()
             viewModel.validateCredentials(user!!,pass!!).observe(this, Observer { logIn ->
-                Log.i("-------------",logIn.logInOK.toString())
-                if (logIn.logInOK){
+                Log.i("-------------",logIn.loginOK.toString())
+                if (logIn.loginOK){
                     Toast.makeText(this,"New Activity Loading",Toast.LENGTH_LONG).show()
                     logInButton.visibility = View.INVISIBLE
                     messageTextView.visibility = View.INVISIBLE
