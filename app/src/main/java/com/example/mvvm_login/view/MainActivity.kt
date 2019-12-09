@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         viewModel = ViewModelProviders.of(this).get(LogInViewModel::class.java)
 
         logInButton.setOnClickListener {
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
                 if (logIn.logInOK){
                     Toast.makeText(this,"New Activity Loading",Toast.LENGTH_LONG).show()
                     logInButton.visibility = View.INVISIBLE
+                    messageTextView.visibility = View.INVISIBLE
                 } else {
                     messageTextView.visibility = View.VISIBLE
                 }
